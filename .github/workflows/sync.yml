@@ -1,0 +1,35 @@
+name: Sync to Main Website
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Force Push to Main Repo
+        run: |
+          # Konfigurasi identitas
+          git config --global user.email "kandi.permana@subang.go.id"
+          git config --global user.name "duliciouss"
+          
+          # Hapus folder .git lama jika ada
+          rm -rf .git
+          
+          # Inisialisasi ulang
+          git init
+          
+          # PAKSA branch saat ini menjadi 'main'
+          git checkout -b main
+          
+          git add .
+          git commit -m "Auto-sync from kandipermana: ${{ github.sha }}"
+          
+          # Push paksa ke repository tujuan
+          git push --force https://duliciouss:${{ secrets.GIT_TOKEN }}@github.com/duliciouss/duliciouss.github.io.git main

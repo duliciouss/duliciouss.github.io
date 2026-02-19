@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" x-data="{ lang: 'en', darkMode: true, showCert: false }"
+    :class="{ 'dark': darkMode }">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kandi Permana, S.Kom | Web Developer & Fullstack Programmer Subang</title>
+    <meta name="title" content="Kandi Permana, S.Kom | Web Developer & Fullstack Programmer Subang">
+    <meta name="description"
+        content="Kandi Permana, S.Kom - Functional IT Official di Diskominfo Subang. Spesialis Fullstack Developer & Database Engineer dengan pengalaman 7+ tahun. Bersertifikasi BNSP.">
+    <meta name="keywords"
+        content="Kandi Permana, Kandi Permana S.Kom, Developer Subang, Diskominfo Subang, Web Developer Subang, Fullstack Programmer Indonesia, BNSP Web Developer, Singabret Subang, SmartThunder Koharmatau, PMB IKIP Siliwangi, Cleanic Laundry System, Sistem Klinik Asti Karawang, PT Sushi Bomber Nusantara">
+    <meta name="author" content="Kandi Permana">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kandipermana.com/">
+    <meta property="og:title" content="Kandi Permana, S.Kom | Professional Web Developer">
+    <meta property="og:description"
+        content="7+ tahun pengalaman mengembangkan ekosistem digital pemerintahan di Diskominfo Subang. Lihat portofolio proyek e-gov dan sistem AI.">
+    <meta property="og:image" content="assets/images/projects/og-preview.jpg">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Kandi Permana, S.Kom | Fullstack Developer">
+    <meta property="twitter:description" content="Expertise dalam PHP, Laravel, dan integrasi sistem publik.">
+    <meta property="twitter:image" content="assets/images/projects/og-preview.jpg">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Kandi Permana, S.Kom",
+        "jobTitle": "Functional IT Official & Fullstack Developer",
+        "affiliation": {
+            "@type": "Organization",
+            "name": "Dinas Komunikasi dan Informatika Kabupaten Subang"
+        },
+        "url": "https://kandi.my.id",
+        "sameAs": [
+            "https://www.linkedin.com/in/kandi-permana-6804a0b3/",
+            "https://github.com/duliciouss" 
+        ],
+        "knowsAbout": ["Web Development", "PHP", "Laravel", "Database Engineering", "Quality Assurance", "E-Government"],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Subang",
+            "addressRegion": "Jawa Barat",
+            "addressCountry": "ID"
+        }
+    }
+    </script>
+
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Kandi Permana" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0a192f',
+                        navyLight: '#112240',
+                        navyDark: '#020c1b',
+                    },
+                    // Tambahkan konfigurasi font family di sini
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-slate-50 dark:bg-navyDark text-slate-700 dark:text-slate-300 font-sans selection:bg-blue-500 selection:text-white transition-colors duration-300">
+
+    <div x-show="showCert" x-cloak
+        class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-opacity"
+        x-transition.opacity>
+        <div @click.away="showCert = false"
+            class="bg-white dark:bg-navyLight p-2 rounded-xl max-w-4xl w-full h-[80vh] relative shadow-2xl">
+            <button @click="showCert = false"
+                class="absolute -top-10 right-0 text-white text-3xl hover:text-blue-500 transition">&times;</button>
+
+            <embed src="assets/pdf/bnsp-kandipermana.pdf" type="application/pdf" class="w-full h-full rounded-lg" />
+        </div>
+    </div>
+
+    <nav
+        class="fixed w-full z-50 bg-white/90 dark:bg-navyDark/90 backdrop-blur-md border-b border-slate-200 dark:border-navyLight">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold text-navy dark:text-white tracking-tighter">
+                KANDI<span class="text-blue-500">.</span>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <div class="hidden md:flex space-x-8 text-xs font-medium uppercase tracking-widest items-center">
+                    <a href="#about" class="hover:text-blue-600 dark:hover:text-white transition"
+                        x-text="lang === 'en' ? 'Bio' : 'Profil'"></a>
+                    <a href="#experience" class="hover:text-blue-600 dark:hover:text-white transition"
+                        x-text="lang === 'en' ? 'Career' : 'Karir'"></a>
+                    <a href="#projects" class="hover:text-blue-600 dark:hover:text-white transition"
+                        x-text="lang === 'en' ? 'Portfolio' : 'Proyek'"></a>
+
+                    <a href="classic.html"
+                        class="group relative flex items-center gap-1 hover:text-blue-500 transition border-l border-slate-300 dark:border-slate-700 pl-6 ml-2">
+                        <i class="fa-solid fa-terminal text-[10px] opacity-50 group-hover:opacity-100"></i>
+                        <span x-text="lang === 'en' ? 'Legacy' : 'Klasik'"></span>
+
+                        <span
+                            class="absolute -bottom-10 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 bg-black text-white text-[8px] py-1 px-2 rounded transition-all whitespace-nowrap z-50">
+                            Go to 90s Version
+                        </span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 text-xs font-medium uppercase tracking-widest items-center">
+                </div>
+
+                <div
+                    class="hidden lg:flex items-center gap-2 px-3 py-1 bg-slate-100 dark:bg-navyLight rounded-full border border-slate-200 dark:border-slate-700">
+                    <span class="relative flex h-2 w-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                    <span class="text-[10px] font-mono font-bold text-slate-600 dark:text-slate-300"
+                        x-data="{ time: '' }"
+                        x-init="setInterval(() => { time = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) }, 1000)"
+                        x-text="'SUBANG: ' + time">
+                    </span>
+                </div>
+
+                <button @click="darkMode = !darkMode"
+                    class="text-lg focus:outline-none transition-colors p-2 rounded-full hover:bg-slate-200 dark:hover:bg-navyLight">
+                    <i class="fa-solid text-amber-500" :class="darkMode ? 'fa-sun' : 'fa-moon text-slate-600'"></i>
+                </button>
+
+                <div
+                    class="flex border border-slate-300 dark:border-slate-700 rounded-lg overflow-hidden text-[10px] font-bold">
+                    <button @click="lang = 'en'" :class="lang === 'en' ? 'bg-blue-600 text-white' : 'bg-transparent'"
+                        class="px-3 py-1 transition">EN</button>
+                    <button @click="lang = 'id'" :class="lang === 'id' ? 'bg-blue-600 text-white' : 'bg-transparent'"
+                        class="px-3 py-1 transition">ID</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="about" class="pt-32 pb-20 px-6 transition-colors duration-300 overflow-hidden">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start gap-12 lg:gap-16">
+
+            <div class="w-48 h-48 md:w-64 md:h-64 relative shrink-0 mx-auto md:sticky md:top-32">
+                <div class="absolute inset-0 border-2 border-blue-500 rounded-3xl translate-x-4 translate-y-4"></div>
+                <div
+                    class="absolute inset-0 bg-white dark:bg-navyLight rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-2xl group cursor-pointer">
+                    <img src="assets/images/kandipermana.png" alt="Kandi Permana"
+                        class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                </div>
+            </div>
+
+            <div class="flex-1 text-center md:text-left">
+                <div class="mb-6">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-2">
+                        <p class="text-blue-600 dark:text-blue-400 font-mono font-bold tracking-tighter"
+                            x-text="lang === 'en' ? 'Hi, my name is' : 'Halo, nama saya'">
+                        </p>
+                        <div class="h-[1px] w-12 bg-blue-500/30"></div>
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-black text-navy dark:text-white mb-2 tracking-tight">
+                        Kandi Permana, <span class="text-blue-600">S.Kom.</span>
+                    </h1>
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
+                        <h2 class="text-lg md:text-xl font-bold text-slate-600 dark:text-slate-300">
+                            Professional Developer <span class="text-blue-600/80">@ Diskominfo Subang</span>
+                        </h2>
+                    </div>
+                    <div @click="showCert = true"
+                        class="my-4 inline-flex items-center gap-2 px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full text-xs font-bold border border-green-200 dark:border-green-800 cursor-pointer hover:scale-105 transition active:scale-95">
+                        <i class="fa-solid fa-certificate"></i>
+                        <span
+                            x-text="lang === 'en' ? 'BNSP Certified Web Developer' : 'Web Developer Tersertifikasi BNSP'"></span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1 opacity-50"></i>
+                    </div>
+                </div>
+
+                <div class="max-w-2xl text-base md:text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-8">
+                    <p x-show="lang === 'en'">
+                        Based in Subang, West Java. I specialize in building <span
+                            class="text-navy dark:text-white font-semibold italic">high-performance applications</span>.
+                        Currently driving digital transformation at the local government level.
+                    </p>
+                    <p x-show="lang === 'id'">
+                        Menetap di Subang. Saya spesialis dalam membangun <span
+                            class="text-navy dark:text-white font-semibold italic">aplikasi berperforma tinggi</span>.
+                        Saat ini menggerakkan transformasi digital di tingkat pemerintahan daerah.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-10 p-5 bg-slate-100/50 dark:bg-navyLight/30 rounded-2xl border border-slate-200 dark:border-slate-700/50 backdrop-blur-sm relative overflow-hidden">
+
+                    <div class="flex flex-col">
+                        <span
+                            class="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-widest">Experience</span>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-2xl font-black text-navy dark:text-white">5+</span>
+                            <span class="text-[10px] text-slate-500 italic">Years</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-blue-200 dark:bg-blue-900/30 rounded-full mt-2">
+                            <div class="bg-blue-600 h-full w-[85%] rounded-full"></div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col border-l border-slate-200 dark:border-slate-700 pl-4 md:pl-6">
+                        <span
+                            class="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-widest">Projects</span>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-2xl font-black text-navy dark:text-white">30+</span>
+                            <span class="text-[10px] text-slate-500 italic">Units</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-green-200 dark:bg-green-900/30 rounded-full mt-2">
+                            <div class="bg-green-600 h-full w-[92%] rounded-full"></div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col border-l border-slate-200 dark:border-slate-700 pl-4 md:pl-6">
+                        <span
+                            class="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-widest">Uptime</span>
+                        <div class="flex items-center gap-1">
+                            <span class="text-2xl font-black text-navy dark:text-white">99.9</span>
+                            <span class="text-[10px] text-green-500 animate-pulse font-bold">%</span>
+                        </div>
+                        <span
+                            class="text-[9px] text-slate-500 font-mono mt-2 tracking-tighter uppercase font-bold">Status:
+                            Stable</span>
+                    </div>
+
+                    <div class="flex flex-col border-l border-slate-200 dark:border-slate-700 pl-4 md:pl-6">
+                        <span class="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-widest"
+                            x-text="lang === 'en' ? 'Fuel Source' : 'Bahan Bakar'"></span>
+                        <div class="flex items-center gap-2">
+                            <span class="text-2xl font-black text-navy dark:text-white">842</span>
+                            <i
+                                class="fa-solid fa-mug-hot text-amber-700 dark:text-amber-500 animate-bounce text-sm"></i>
+                        </div>
+                        <span class="text-[9px] text-slate-500 font-mono mt-2 tracking-tighter uppercase font-bold"
+                            x-text="lang === 'en' ? 'Liters of Coffee' : 'Liter Kopi'"></span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <a href="https://wa.me/6281292822284"
+                        class="w-full md:w-auto px-8 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/25 flex items-center justify-center gap-3">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span x-text="lang === 'en' ? 'Start Project' : 'Mulai Proyek'"></span>
+                    </a>
+                    <div
+                        class="flex flex-wrap justify-center gap-3 text-[10px] font-mono font-bold text-slate-400 uppercase">
+                        <span class="px-2 py-1 bg-slate-100 dark:bg-navyLight rounded">#Fullstack</span>
+                        <span class="px-2 py-1 bg-slate-100 dark:bg-navyLight rounded">#Webdev</span>
+                        <span class="px-2 py-1 bg-slate-100 dark:bg-navyLight rounded">#SQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience"
+        class="py-20 bg-white dark:bg-navyDark transition-colors duration-300 border-y border-slate-200 dark:border-navyLight">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-navy dark:text-white flex items-center gap-4">
+                <span x-text="lang === 'en' ? 'Career Journey' : 'Perjalanan Karier'"></span>
+                <div class="h-[1px] bg-blue-500 flex-grow"></div>
+            </h2>
+
+            <div class="space-y-12">
+                <div class="relative pl-8 border-l-2 border-blue-500">
+                    <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-[9px] top-1 shadow-[0_0_10px_#3b82f6]">
+                    </div>
+                    <div class="flex flex-wrap justify-between items-center mb-1">
+                        <h3 class="text-xl font-bold dark:text-white">Functional IT Official - Web & Fullstack Developer
+                        </h3>
+                        <span
+                            class="text-xs font-mono text-blue-600 dark:text-blue-400 font-bold bg-blue-50 dark:bg-blue-900/20 px-2 py-1 rounded">Feb
+                            2019 - Present</span>
+                    </div>
+                    <p class="text-navy dark:text-slate-400 font-bold mb-3 uppercase text-sm tracking-wide">Dinas
+                        Komunikasi dan Informatika Subang</p>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span
+                            class="text-[10px] bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded border dark:border-slate-700">PHP</span>
+                        <span
+                            class="text-[10px] bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded border dark:border-slate-700">Laravel</span>
+                        <span
+                            class="text-[10px] bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded border dark:border-slate-700">API
+                            Integration</span>
+                    </div>
+                    <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400"
+                        x-text="lang === 'en' ? 'Leading web development initiatives for regional digital transformation, managing full-stack applications, and ensuring system interoperability.' : 'Memimpin inisiatif pengembangan web untuk transformasi digital daerah, mengelola aplikasi full-stack, dan memastikan interoperabilitas sistem.'">
+                    </p>
+                </div>
+
+                <div class="relative pl-8 border-l-2 border-slate-300 dark:border-slate-700">
+                    <div class="absolute w-4 h-4 bg-slate-300 dark:bg-slate-700 rounded-full -left-[9px] top-1"></div>
+                    <div class="flex flex-wrap justify-between items-center mb-1">
+                        <h3 class="text-xl font-bold dark:text-white">Fullstack Developer & Freelance</h3>
+                        <span class="text-xs font-mono opacity-60 px-2 py-1">2020 - Present</span>
+                    </div>
+                    <p
+                        class="text-navy dark:text-slate-400 font-bold mb-3 uppercase text-sm tracking-wide text-blue-500">
+                        Independent Projects</p>
+                    <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400"
+                        x-text="lang === 'en' ? 'Developed various custom solutions including Clinic Systems, AI Data Banks for Koharmatau, and Campus Portals.' : 'Mengembangkan berbagai solusi kustom termasuk Sistem Klinik, Bank Data AI untuk Koharmatau, dan Portal Kampus.'">
+                    </p>
+                </div>
+
+                <div class="relative pl-8 border-l-2 border-slate-300 dark:border-slate-700">
+                    <div class="absolute w-4 h-4 bg-slate-300 dark:bg-slate-700 rounded-full -left-[9px] top-1"></div>
+                    <div class="flex flex-wrap justify-between items-center mb-1">
+                        <h3 class="text-xl font-bold dark:text-white">System Implementor & QA</h3>
+                        <span class="text-xs font-mono opacity-60 px-2 py-1 text-slate-500">Jan 2016 - Jan 2019</span>
+                    </div>
+                    <p class="text-navy dark:text-slate-400 font-bold mb-3 uppercase text-sm tracking-wide">PT Nuansa
+                        Cerah Informasi</p>
+                    <div class="flex flex-wrap gap-2 mb-3 text-slate-500">
+                        <span
+                            class="text-[10px] border border-slate-300 dark:border-slate-700 px-2 py-0.5 rounded italic">SQL
+                            Server</span>
+                        <span
+                            class="text-[10px] border border-slate-300 dark:border-slate-700 px-2 py-0.5 rounded italic">Quality
+                            Assurance</span>
+                    </div>
+                    <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400"
+                        x-text="lang === 'en' ? 'Focused on system deployment, database management with MS SQL Server, and rigorous quality assurance testing for enterprise software.' : 'Fokus pada implementasi sistem, manajemen database MS SQL Server, dan pengujian QA yang ketat untuk perangkat lunak perusahaan.'">
+                    </p>
+                </div>
+
+                <div class="relative pl-8 border-l-2 border-slate-300 dark:border-slate-700 opacity-70">
+                    <div class="absolute w-4 h-4 bg-slate-300 dark:bg-slate-700 rounded-full -left-[9px] top-1"></div>
+                    <div class="flex flex-wrap justify-between items-center mb-1">
+                        <h3 class="text-xl font-bold dark:text-white">Internship's Student</h3>
+                        <span class="text-xs font-mono opacity-60 px-2 py-1">Feb 2015 - Apr 2015</span>
+                    </div>
+                    <p class="text-navy dark:text-slate-400 font-bold mb-3 uppercase text-sm tracking-wide">Fujitsu
+                        Indonesia</p>
+                    <p class="text-sm italic"
+                        x-text="lang === 'en' ? 'Gained initial industry exposure in a global tech environment at Jakarta headquarters.' : 'Mendapatkan paparan industri awal dalam lingkungan teknologi global di kantor pusat Jakarta.'">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-20 bg-slate-100 dark:bg-navy transition-colors duration-300">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-navy dark:text-white flex items-center gap-4">
+                <span x-text="lang === 'en' ? 'Education' : 'Pendidikan'"></span>
+                <div class="h-[1px] bg-blue-500/30 flex-grow"></div>
+            </h2>
+
+            <div class="space-y-8">
+                <div class="flex gap-6 items-start group">
+                    <div
+                        class="w-12 h-12 shrink-0 bg-white dark:bg-navyLight rounded-xl flex items-center justify-center border border-slate-200 dark:border-slate-700 shadow-sm group-hover:border-blue-500 transition-colors">
+                        <i class="fa-solid fa-graduation-cap text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-navy dark:text-white">Universitas Widyatama</h3>
+                        <p class="text-blue-600 dark:text-blue-400 font-medium italic text-sm">Bachelor's Degree (S1) -
+                            Informatics Engineering</p>
+                        <p class="text-xs text-slate-500 mt-1 uppercase tracking-widest">Graduated 2024</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6 items-start group">
+                    <div
+                        class="w-12 h-12 shrink-0 bg-white dark:bg-navyLight rounded-xl flex items-center justify-center border border-slate-200 dark:border-slate-700 shadow-sm group-hover:border-blue-500 transition-colors">
+                        <i class="fa-solid fa-university text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-navy dark:text-white">Politeknik Pos Indonesia</h3>
+                        <p class="text-blue-600 dark:text-blue-400 font-medium italic text-sm">Associate's Degree (D3) -
+                            Informatics Engineering</p>
+                        <p class="text-xs text-slate-500 mt-1 uppercase tracking-widest">Graduated 2015</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 bg-slate-100 dark:bg-navy transition-colors duration-300" x-data="{ 
+        expanded: false, 
+        showProjectModal: false, 
+        activeProject: {},
+        projects: [
+            {
+                title: 'Singabret Kab. Subang',
+                desc: 'Sistem Kehadiran & Kinerja Pegawai Terintegrasi.',
+                descEn: 'Integrated Employee Attendance & Performance System.',
+                longDesc: 'Mengembangkan aplikasi presensi untuk seluruh PNS Kabupaten Subang. Bertugas membangun API untuk Android dan mengembangkan dashboard web manajemen kinerja yang bersinergi secara nasional.',
+                tech: ['Laravel', 'REST API', 'MySQL', 'Bootstrap'],
+                image: '/assets/projects/singabret.png',
+                link: 'https://singabret.subang.go.id',
+                playstore: 'https://play.google.com/store/apps/details?id=id.go.subang.sijawara'
+            },
+            {
+                title: 'SmartThunder - AI Koharmatau',
+                desc: 'Bank Data & AI Translation File Koharmatau.',
+                descEn: 'AI Data Bank & File Translation for Koharmatau.',
+                longDesc: 'Aplikasi berbasis AI untuk manajemen dokumen militer. Mampu membaca file PDF kompleks dan melakukan konversi bahasa asing ke Bahasa Indonesia secara otomatis.',
+                tech: ['Python/AI', 'PHP', 'PDF Parser', 'PostgreSQL'],
+                image: '/assets/projects/smartthunder.png',
+                link: 'https://smartthunder.ditengkoharmatau.com'
+            },
+            {
+                title: 'Portal PMB IKIP Siliwangi',
+                desc: 'Portal Penerimaan Mahasiswa Baru & Payment BRI.',
+                descEn: 'Student Admission Portal with BRI Payment Integration.',
+                longDesc: 'Membangun sistem PMB terpadu yang terintegrasi dengan Virtual Account Bank BRI (BRIMO) untuk otomatisasi verifikasi pembayaran mahasiswa baru.',
+                tech: ['Full-Stack', 'Payment Gateway', 'API BRI', 'Web App'],
+                image: '/assets/projects/pmb-ikip.png',
+                link: '#'
+            },
+            {
+                title: 'Cleanic Laundry System',
+                desc: 'Aplikasi Manajemen Laundry & Landing Page.',
+                descEn: 'Laundry Management System & Landing Page.',
+                longDesc: 'Solusi digital lengkap untuk bisnis laundry, mencakup landing page responsif untuk pelanggan dan sistem backend untuk manajemen order, status laundry, hingga laporan keuangan.',
+                tech: ['PHP', 'Laravel', 'MySQL', 'Tailwind CSS', 'Web Hosting'],
+                image: '/assets/projects/cleanic.png', // Pastikan file ini ada atau ganti namanya
+                link: 'https://cleaniclaundry.web.id/'
+            },
+            {
+                title: 'Sistem Klinik Asti Karawang',
+                desc: 'Manajemen Rekam Medis & Billing Klinik.',
+                descEn: 'Clinic Management & Medical Record System.',
+                longDesc: 'Sistem informasi kesehatan lengkap mencakup pendaftaran pasien, rekam medis elektronik, modul rawat inap/jalan, hingga sistem billing tagihan otomatis.',
+                tech: ['PHP', 'Laravel', 'JavaScript', 'Tailwind CSS', 'Web Hosting'],
+                image: '/assets/projects/klinik-asti.png',
+                link: 'https://klinikasti.web.id'
+            },
+            {
+                title: 'PT. Sushi Bomber Nusantara',
+                desc: 'Corporate Website Pelatihan Bahasa Jepang.',
+                descEn: 'Corporate Website for Japanese Language Training.',
+                longDesc: 'Pengembangan website profil perusahaan untuk bidang kursus dan pelatihan bahasa Jepang dengan fitur pendaftaran dan informasi kursus.',
+                tech: ['Web Development', 'PHP', 'Laravel', 'UI/UX', 'SEO', 'Mobile Ready'],
+                image: '/assets/projects/sushi-bomber.png',
+                link: 'https://sushibomber-nusantara.co.id'
+            }
+        ]
+    }">
+
+        <div x-show="showProjectModal" x-cloak
+            class="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm transition-opacity"
+            x-transition.opacity>
+            <div @click.away="showProjectModal = false"
+                class="bg-white dark:bg-navyLight rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl animate-fadeIn border border-slate-200 dark:border-slate-700">
+                <div class="h-64 bg-slate-200 dark:bg-slate-800 relative">
+                    <img :src="activeProject.image" class="w-full h-full object-cover">
+                    <button @click="showProjectModal = false"
+                        class="absolute top-4 right-4 bg-black/50 text-white w-10 h-10 rounded-full hover:bg-red-500 transition flex items-center justify-center shadow-lg">&times;</button>
+                </div>
+                <div class="p-8">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <template x-for="t in activeProject.tech">
+                            <span
+                                class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-[10px] font-bold rounded-md uppercase tracking-wider"
+                                x-text="t"></span>
+                        </template>
+                    </div>
+                    <h3 class="text-2xl font-bold text-navy dark:text-white mb-4" x-text="activeProject.title"></h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed text-sm md:text-base"
+                        x-text="activeProject.longDesc"></p>
+                    <div class="flex flex-wrap gap-4 text-center">
+                        <template x-if="activeProject.link && activeProject.link !== '#'">
+                            <a :href="activeProject.link" target="_blank"
+                                class="px-6 py-2.5 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition flex items-center gap-2 text-xs">
+                                <i class="fa-solid fa-earth-asia"></i> Visit Website
+                            </a>
+                        </template>
+                        <template x-if="activeProject.playstore">
+                            <a :href="activeProject.playstore" target="_blank"
+                                class="px-6 py-2.5 bg-green-600 text-white rounded-lg font-bold hover:bg-green-700 transition flex items-center gap-2 text-xs">
+                                <i class="fa-brands fa-google-play"></i> Play Store
+                            </a>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex items-center gap-4 mb-12">
+                <h2 class="text-3xl font-bold text-navy dark:text-white"
+                    x-text="lang === 'en' ? 'Portfolio Projects' : 'Portofolio Proyek'"></h2>
+                <div class="h-[1px] bg-slate-300 dark:bg-slate-700 flex-grow"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <template x-for="(project, index) in projects">
+                    <div x-show="index < 3 || expanded" x-transition.scale.origin.top
+                        @click="activeProject = project; showProjectModal = true"
+                        class="bg-white dark:bg-navyLight rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 transition-all duration-300 group shadow-sm cursor-pointer hover:-translate-y-2">
+                        <div
+                            class="h-48 bg-slate-200 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 overflow-hidden relative">
+                            <img :src="project.image" :alt="project.title"
+                                class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-110">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                <span class="text-white text-[10px] font-bold tracking-widest uppercase">Click for
+                                    Details</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex flex-wrap gap-1 mb-3">
+                                <template x-for="t in project.tech.slice(0, 3)">
+                                    <span class="text-[8px] font-bold text-blue-500 uppercase tracking-tighter"
+                                        x-text="t + ' •'"></span>
+                                </template>
+                            </div>
+                            <h3 class="text-navy dark:text-white font-bold uppercase tracking-wide text-sm mb-2"
+                                x-text="project.title"></h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed"
+                                x-text="lang === 'en' ? project.descEn : project.desc">
+                            </p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div
+                class="mt-12 p-6 rounded-2xl bg-slate-200/50 dark:bg-navyLight/50 border border-dashed border-slate-300 dark:border-slate-700 backdrop-blur-sm">
+                <div class="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
+                    <div
+                        class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
+                        <i class="fa-solid fa-shield-halved text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm md:text-base font-medium text-slate-700 dark:text-slate-300"
+                            x-show="lang === 'id'">
+                            <span class="font-bold text-navy dark:text-white">Proyek Lainnya (NDA):</span>
+                            Terdapat lebih dari 15 proyek tambahan termasuk sistem internal pemerintahan, integrasi
+                            database
+                            militer, dan solusi korporat yang tidak dapat dipublikasikan untuk menjaga kerahasiaan
+                            data dan
+                            kebijakan keamanan.
+                        </p>
+                        <p class="text-sm md:text-base font-medium text-slate-700 dark:text-slate-300"
+                            x-show="lang === 'en'">
+                            <span class="font-bold text-navy dark:text-white">Other Projects (NDA):</span>
+                            There are over 15 additional projects including internal government systems, military
+                            database
+                            integrations, and corporate solutions that cannot be disclosed due to data
+                            confidentiality and
+                            security policies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 text-center" x-show="projects.length > 3">
+                <button @click="expanded = !expanded"
+                    class="px-8 py-3 border-2 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 rounded-full font-bold hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300 flex items-center gap-2 mx-auto text-sm">
+                    <span
+                        x-text="expanded ? (lang === 'en' ? 'Show Less' : 'Lihat Sedikit') : (lang === 'en' ? 'See More Works' : 'Lihat Proyek Lainnya')"></span>
+                    <i class="fa-solid transition-transform duration-300"
+                        :class="expanded ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6">
+        <div
+            class="max-w-4xl mx-auto bg-gradient-to-br from-blue-600 to-indigo-800 rounded-3xl p-10 md:p-16 text-center shadow-2xl shadow-blue-500/20 relative overflow-hidden">
+            <div
+                class="absolute top-0 right-0 -translate-y-12 translate-x-12 w-64 h-64 bg-white/10 rounded-full blur-3xl">
+            </div>
+
+            <div class="relative z-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6"
+                    x-text="lang === 'en' ? 'Have a project in mind?' : 'Punya ide proyek atau kolaborasi?'"></h2>
+                <p class="text-blue-100 mb-10 text-lg max-w-xl mx-auto"
+                    x-text="lang === 'en' ? 'I am always open to discussing new projects, digital transformation, or partnerships.' : 'Saya selalu terbuka untuk mendiskusikan proyek baru, transformasi digital, atau kemitraan strategis.'">
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="https://wa.me/6281292822284"
+                        class="px-8 py-4 bg-white text-blue-700 rounded-full font-bold hover:bg-blue-50 transition-all transform hover:scale-105 active:scale-95 flex items-center gap-2 shadow-xl">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span x-text="lang === 'en' ? 'Contact Me via WhatsApp' : 'Hubungi via WhatsApp'"></span>
+                    </a>
+                    <a href="mailto:kandipermana@gmail.com"
+                        class="px-8 py-4 bg-transparent border-2 border-white/30 text-white rounded-full font-bold hover:bg-white/10 transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-envelope"></i>
+                        Email Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech" class="py-20 px-6 bg-white dark:bg-navyDark transition-colors duration-300">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-xl font-bold text-navy dark:text-white mb-10 uppercase tracking-[0.3em]"
+                x-text="lang === 'en' ? 'Tech Stack' : 'Keahlian Teknologi'"></h2>
+            <div class="flex flex-wrap justify-center gap-12 text-5xl text-slate-400">
+                <i class="fa-brands fa-laravel hover:text-[#FF2D20] transition cursor-help" title="Laravel"></i>
+                <i class="fa-brands fa-react hover:text-[#61DAFB] transition cursor-help" title="React"></i>
+                <i class="fa-brands fa-php hover:text-[#777BB4] transition cursor-help" title="PHP"></i>
+                <i class="fa-brands fa-js hover:text-[#F7DF1E] transition cursor-help" title="JavaScript"></i>
+                <i class="fa-brands fa-git-alt hover:text-[#F05032] transition cursor-help" title="Git"></i>
+                <i class="fa-brands fa-docker hover:text-[#2496ED] transition cursor-help" title="Docker"></i>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact"
+        class="py-12 border-t border-slate-200 dark:border-navyLight bg-slate-50 dark:bg-navyDark transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-blue-600 dark:text-blue-400 font-mono mb-4 font-bold"
+                x-text="lang === 'en' ? 'Get In Touch' : 'Hubungi Saya'"></p>
+            <h2 class="text-4xl font-bold text-navy dark:text-white mb-8"
+                x-text="lang === 'en' ? 'Let\'s Work Together' : 'Mari Berkolaborasi'"></h2>
+
+            <div class="flex justify-center space-x-8 text-2xl mb-12">
+                <a href="https://github.com/duliciouss" target="_blank"
+                    class="text-slate-400 hover:text-navy dark:hover:text-blue-500 transition"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/kandi-permana-6804a0b3/" target="_blank"
+                    class="text-slate-400 hover:text-navy dark:hover:text-blue-500 transition"><i
+                        class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:kandipermana@gmail.com" target="_blank"
+                    class="text-slate-400 hover:text-navy dark:hover:text-blue-500 transition"><i
+                        class="fa-solid fa-envelope"></i></a>
+                <a href="https://wa.me/6281292822284" target="_blank"
+                    class="text-slate-400 hover:text-navy dark:hover:text-blue-500 transition"><i
+                        class="fa-brands fa-whatsapp"></i></a>
+            </div>
+
+            <div class="mb-12 pt-8 border-t border-slate-200/50 dark:border-navyLight/50 max-w-md mx-auto">
+                <p class="text-[10px] font-mono opacity-50 mb-4 italic">
+                    root@kandipermana:~# <span class="animate-pulse">_</span>
+                </p>
+                <a href="classic.html"
+                    class="group inline-block px-5 py-2 border border-slate-300 dark:border-slate-700 rounded-lg hover:border-blue-500 dark:hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-all duration-300 font-mono text-[11px] uppercase tracking-tight">
+                    <span class="text-slate-400 group-hover:text-blue-600 transition-colors">sudo apt-get install</span>
+                    <span class="text-navy dark:text-white font-bold">classic-mode</span>
+                </a>
+
+                <div class="mt-6" x-data="{ isDecrypting: false, showSPT: false }">
+
+                    <button
+                        @click="isDecrypting = true; setTimeout(() => { showSPT = true; isDecrypting = false }, 1500)"
+                        class="group flex items-center justify-center gap-2 mx-auto transition-all duration-300">
+                        <span class="relative flex h-2 w-2">
+                            <span :class="isDecrypting ? 'bg-blue-500' : 'bg-amber-500'"
+                                class="relative inline-flex rounded-full h-2 w-2 transition-colors duration-300"></span>
+                            <template x-if="!isDecrypting">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                            </template>
+                        </span>
+                        <span class="text-[10px] font-mono text-amber-600 dark:text-amber-400"
+                            x-text="isDecrypting ? '[ STATUS: DECRYPTING_FILE... ]' : '[!] 1 UNREAD_OFFICIAL_DOCUMENT DETECTED. CLICK TO DECRYPT...'">
+                        </span>
+                    </button>
+                    <div x-show="showSPT" x-cloak
+                        class="fixed inset-0 z-[200] bg-slate-900/90 backdrop-blur-sm flex items-center justify-center p-4"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100">
+
+                        <div @click.away="showSPT = false"
+                            class="bg-[#f9f9f9] text-black p-6 md:p-10 max-w-lg w-full font-serif border-[3px] border-black shadow-[20px_20px_0px_0px_rgba(0,0,0,0.5)] relative overflow-hidden">
+
+                            <div
+                                class="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none select-none">
+                                <i class="fa-solid fa-shield-halved text-[300px] -rotate-12"></i>
+                            </div>
+
+                            <button @click="showSPT = false"
+                                class="absolute top-4 right-4 text-xl hover:rotate-90 transition-transform z-20">✕</button>
+
+                            <div class="relative z-10">
+                                <div class="text-center border-b-[3px] border-double border-black pb-4 mb-6">
+                                    <h3 class="text-base md:text-lg font-bold uppercase leading-tight tracking-tighter">
+                                        Pemerintah Kabupaten Subang</h3>
+                                    <p class="text-[10px] md:text-xs font-bold tracking-[0.2em]">DINAS KOMUNIKASI DAN
+                                        INFORMATIKA</p>
+                                    <p class="text-[9px] italic mt-1 text-slate-500 underline underline-offset-2">Jl.
+                                        Mayjen Sutoyo No.2, Karanganyar, Subang</p>
+                                </div>
+
+                                <div class="space-y-4 text-sm leading-relaxed">
+                                    <div class="text-center mb-6">
+                                        <p class="font-black underline uppercase text-base tracking-widest">Surat Tugas
+                                            Digital</p>
+                                        <p class="text-[10px] font-mono">Nomor: 800/WEB-DEV/KND/<span
+                                                class="bg-yellow-200 px-1">2026</span><span
+                                                class="animate-pulse">_</span></p>
+                                    </div>
+
+                                    <div class="flex gap-4 items-start">
+                                        <span class="font-bold min-w-[80px] uppercase text-[11px]">Menimbang</span>
+                                        <span class="font-bold">:</span>
+                                        <p class="text-justify">Bahwa pengunjung website telah melampaui batas waktu
+                                            pengamatan tanpa adanya interaksi formal maupun informal.</p>
+                                    </div>
+
+                                    <div class="flex gap-4 items-start">
+                                        <span class="font-bold min-w-[80px] uppercase text-[11px]">Memerintahkan</span>
+                                        <span class="font-bold">:</span>
+                                        <p class="italic font-bold text-blue-800 bg-blue-50 px-1">Sdr. Pengunjung Yang
+                                            Terhormat</p>
+                                    </div>
+
+                                    <div class="flex gap-4 items-start pb-8">
+                                        <span class="font-bold min-w-[80px] uppercase text-[11px]">Untuk</span>
+                                        <span class="font-bold">:</span>
+                                        <ol class="list-decimal pl-4 space-y-1 font-medium">
+                                            <li>Melakukan kontak segera via WhatsApp/Email;</li>
+                                            <li>Menginisiasi diskusi strategis terkait pengembangan IT;</li>
+                                            <li>Tetap bahagia dan sukses dalam menjalankan tugas negara.</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="mt-8 flex justify-between items-end">
+                                    <div class="relative">
+                                        <div
+                                            class="absolute -top-10 -left-4 w-28 h-28 border-4 border-blue-600/30 rounded-full flex items-center justify-center rotate-[-15deg] pointer-events-none border-dashed animate-[spin_20s_linear_infinite]">
+                                            <p class="text-[7px] text-blue-600/40 font-black text-center uppercase">
+                                                OFFICIAL ACCESS<br>GRANTED 2026</p>
+                                        </div>
+                                        <div
+                                            class="relative z-10 border-2 border-blue-700 text-blue-700 bg-white/80 px-3 py-1.5 rotate-[-3deg] font-black text-[10px] uppercase shadow-sm">
+                                            <i class="fa-solid fa-certificate mr-1"></i> Verified ID: 19910522-KANDI
+                                        </div>
+                                    </div>
+                                    <div class="text-right text-[10px] font-bold">
+                                        <p>Subang, <span
+                                                x-text="new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })"></span>
+                                        </p>
+                                        <p class="mt-4 uppercase underline">Kandi Permana, S.Kom</p>
+                                        <p class="text-[8px] opacity-60">NIP. 19920522 202421 1 001 (Simulasi)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-xs text-slate-500 uppercase tracking-widest">
+                &copy; 2026 Kandi Permana | Diskominfo Subang
+            </p>
+
+            <div
+                class="mt-4 flex justify-center items-center gap-2 opacity-40 hover:opacity-100 transition-opacity duration-500">
+                <i class="fa-solid fa-code-branch text-[10px]"></i>
+                <span class="text-[9px] font-mono uppercase tracking-tighter">
+                    Last Deployment: Success | v2.4.0-stable | <span x-text="new Date().toLocaleDateString()"></span>
+                </span>
+            </div>
+
+        </div>
+    </footer>
+    <a href="classic.html"
+        class="fixed bottom-6 left-6 z-[60] group flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 p-2 pr-5 rounded-full hover:bg-white/20 transition-all duration-500 shadow-xl overflow-hidden">
+        <div
+            class="w-10 h-10 bg-navy dark:bg-white text-white dark:text-navy rounded-full flex items-center justify-center group-hover:rotate-[360deg] transition-transform duration-700">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+        </div>
+        <div class="flex flex-col text-left">
+            <span
+                class="text-[10px] uppercase tracking-widest leading-none opacity-60 text-slate-500 dark:text-slate-400">Switch
+                View</span>
+            <span class="text-xs font-bold uppercase tracking-tighter text-navy dark:text-white">Classic Mode</span>
+        </div>
+    </a>
+    <div id="custom-cursor"
+        class="hidden md:block fixed w-8 h-8 border-2 border-blue-500 rounded-full pointer-events-none z-[999] transition-transform duration-100 ease-out -translate-x-1/2 -translate-y-1/2">
+    </div>
+
+    <div class="fixed top-0 left-0 w-full h-1 z-[100]">
+        <div class="h-full bg-blue-600 transition-all duration-150" id="scroll-progress" style="width: 0%"></div>
+    </div>
+
+    <div class="py-10 overflow-hidden bg-slate-50 dark:bg-navyDark/50 border-y border-slate-200 dark:border-slate-800">
+        <div class="flex animate-marquee whitespace-nowrap gap-10">
+            <span class="text-2xl font-black opacity-20 dark:opacity-10 uppercase tracking-tighter">PHP8.x</span>
+            <span class="text-2xl font-black opacity-20 dark:opacity-10 uppercase tracking-tighter">Laravel 11</span>
+            <span class="text-2xl font-black opacity-20 dark:opacity-10 uppercase tracking-tighter">TailwindCSS</span>
+            <span class="text-2xl font-black opacity-20 dark:opacity-10 uppercase tracking-tighter">Alpine.js</span>
+            <span class="text-2xl font-black opacity-20 dark:opacity-10 uppercase tracking-tighter">REST_API</span>
+            <span class="text-2xl font-black opacity-20 dark:opacity-10 uppercase tracking-tighter">MySQL</span>
+        </div>
+    </div>
+
+    <style>
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-marquee {
+            display: inline-flex;
+            animation: marquee 20s linear infinite;
+        }
+    </style>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scroll-progress').style.width = scrolled + '%';
+        });
+    </script>
+
+    <script>
+        const cursor = document.getElementById('custom-cursor');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Efek membesar saat hover link
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('scale-150', 'bg-blue-500/10'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('scale-150', 'bg-blue-500/10'));
+        });
+    </script>
+    <script src="assets/app.js"></script>
+</body>
+
+</html>

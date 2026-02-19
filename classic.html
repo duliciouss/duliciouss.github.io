@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="id" x-data="{ lang: 'id' }">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KANDI PERMANA, S.Kom | CLASSIC_MODE</title>
+
+    <meta name="description"
+        content="Versi Klasik Portofolio Kandi Permana, S.Kom. Fullstack Developer di Diskominfo Subang.">
+    <meta name="robots" content="noindex, follow">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        /* Tipografi Klasik */
+        body {
+            font-family: "Times New Roman", Times, serif;
+            filter: grayscale(100%);
+            background-color: #fff;
+            color: #000;
+        }
+
+        .retro-border {
+            border: 3px solid #000;
+            box-shadow: 6px 6px 0px 0px #000;
+        }
+
+        .retro-button {
+            border: 2px solid #000;
+            background: #fff;
+            color: #000;
+            padding: 8px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .retro-button:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        .table-header {
+            background: #000;
+            color: #fff;
+            padding: 5px 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        hr {
+            border: 0;
+            border-top: 3px double #000;
+            margin: 30px 0;
+        }
+
+        marquee {
+            background: #000;
+            color: #fff;
+            padding: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="p-4 md:p-10 leading-relaxed">
+
+    <marquee scrollamount="8" class="mb-6 uppercase">
+        System Status: Online ... Web Developer Certified by BNSP ... 7+ Years Experience in Government Technology ...
+        Available for Collaboration ...
+    </marquee>
+
+    <header class="max-w-5xl mx-auto mb-12">
+        <div class="flex justify-between items-end border-b-8 border-black pb-4">
+            <div>
+                <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tighter">KANDI PERMANA, S.Kom</h1>
+                <p class="text-xl md:text-2xl font-bold mt-2">FUNCTIONAL_IT_OFFICIAL [WEB_AND_FULLSTACK_DEVELOPER]</p>
+            </div>
+            <div class="hidden md:block text-right">
+                <p class="font-bold">VER_2.0_CLASSIC</p>
+                <div class="mt-2 border-2 border-black inline-flex">
+                    <button @click="lang = 'en'" class="px-2 border-r-2 border-black"
+                        :class="lang === 'en' ? 'bg-black text-white' : ''">EN</button>
+                    <button @click="lang = 'id'" class="px-2"
+                        :class="lang === 'id' ? 'bg-black text-white' : ''">ID</button>
+                </div>
+            </div>
+        </div>
+        <nav class="mt-4 flex flex-wrap gap-6 font-bold underline uppercase italic">
+            <a href="index.html" class="text-red-600 bg-yellow-300 px-2 border border-black no-underline">←
+                BACK_TO_MODERN_UI</a>
+            <a href="#about">BIO</a>
+            <a href="#experience">WORK_LOG</a>
+            <a href="#education">EDUCATION</a>
+            <a href="#projects">ARCHIVE</a>
+        </nav>
+    </header>
+
+    <main class="max-w-5xl mx-auto">
+
+        <section id="about" class="grid md:grid-cols-4 gap-10 mb-20">
+            <div class="md:col-span-1">
+                <div class="retro-border p-1 bg-white">
+                    <img src="assets/images/kandipermana.png" alt="Profile"
+                        class="w-full border-2 border-black grayscale">
+                </div>
+                <div class="mt-4 border-2 border-black p-2 text-xs font-mono">
+                    <p>NAME: KANDI PERMANA</p>
+                    <p>ROLE: DEVELOPER</p>
+                    <p>LOC: SUBANG, ID</p>
+                    <p>CERT: BNSP_WEB_DEV</p>
+                </div>
+            </div>
+            <div class="md:col-span-3">
+                <h2 class="table-header inline-block mb-4">PROFILE_OVERVIEW</h2>
+                <div class="retro-border p-6 text-lg">
+                    <p x-show="lang === 'id'">
+                        Halo. Saya Kandi Permana. Berbasis di Subang, Jawa Barat. Spesialisasi saya adalah membangun
+                        website dan aplikasi berperforma tinggi. Saat ini berkontribusi aktif dalam transformasi digital
+                        di <strong>Dinas Komunikasi dan Informatika Kabupaten Subang</strong>. Memiliki pengalaman lebih
+                        dari 7 tahun dalam ekosistem teknologi pemerintahan.
+                    </p>
+                    <p x-show="lang === 'en'">
+                        Hello. I am Kandi Permana. Based in Subang, West Java. I specialize in building high-performance
+                        websites and applications. Currently contributing to digital transformation at
+                        <strong>Diskominfo Subang</strong>. Over 7 years of experience in government technology
+                        ecosystems.
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <a href="https://wa.me/6281292822284" class="retro-button">CONTACT_WA</a>
+                        <a href="mailto:kandipermana@gmail.com" class="retro-button">SEND_EMAIL</a>
+                        <a href="https://www.linkedin.com/in/kandi-permana-6804a0b3/" class="retro-button">LINKEDIN</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="experience" class="mb-20">
+            <h2 class="table-header mb-8">WORK_EXPERIENCE_LOG</h2>
+            <div class="space-y-12">
+                <div class="grid md:grid-cols-4 gap-4 border-l-4 border-black pl-6">
+                    <div class="font-bold italic">2019 - PRESENT</div>
+                    <div class="md:col-span-3">
+                        <h3 class="text-2xl font-black uppercase">Functional IT Official - Web & Fullstack Developer
+                        </h3>
+                        <p class="font-bold underline">Dinas Komunikasi dan Informatika Subang</p>
+                        <p class="mt-2 text-sm italic">Core Stack: PHP, Laravel, REST API, Database Engineering.</p>
+                        <p class="mt-4"
+                            x-text="lang === 'id' ? 'Memimpin inisiatif pengembangan web untuk transformasi digital daerah, mengelola aplikasi full-stack (Singabret), dan memastikan interoperabilitas sistem.' : 'Leading web development initiatives for regional digital transformation, managing full-stack applications (Singabret), and ensuring system interoperability.'">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-4 border-l-4 border-black pl-6">
+                    <div class="font-bold italic">2020 - PRESENT</div>
+                    <div class="md:col-span-3">
+                        <h3 class="text-2xl font-black uppercase">Freelance Developer</h3>
+                        <p class="font-bold underline">Independent Contractor</p>
+                        <p class="mt-4"
+                            x-text="lang === 'id' ? 'Mengembangkan berbagai solusi kustom termasuk Sistem Klinik Asti, Bank Data AI untuk Koharmatau, dan Portal Kampus IKIP Siliwangi.' : 'Developed various custom solutions including Klinik Asti, AI Data Bank for Koharmatau, and IKIP Siliwangi Campus Portal.'">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-4 border-l-4 border-black pl-6">
+                    <div class="font-bold italic">2016 - 2019</div>
+                    <div class="md:col-span-3">
+                        <h3 class="text-2xl font-black uppercase">System Implementor & QA</h3>
+                        <p class="font-bold underline">PT Nuansa Cerah Informasi</p>
+                        <p class="mt-4"
+                            x-text="lang === 'id' ? 'Fokus pada implementasi sistem, manajemen database MS SQL Server, dan pengujian QA untuk perangkat lunak perusahaan.' : 'Focused on system deployment, database management with MS SQL Server, and rigorous quality assurance testing.'">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="education" class="mb-20">
+            <h2 class="table-header mb-8">EDUCATION_CERTIFICATION</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="retro-border p-6">
+                    <h3 class="font-black text-xl border-b-2 border-black mb-4 uppercase text-center">Formal Education
+                    </h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <p class="font-bold uppercase">Universitas Widyatama</p>
+                            <p class="text-sm">Bachelor's degree (S1), Informatics Engineering</p>
+                            <p class="text-xs font-mono">GRADUATED_2024</p>
+                        </li>
+                        <li>
+                            <p class="font-bold uppercase">Politeknik Pos Indonesia</p>
+                            <p class="text-sm">Associate's degree (D3), Informatics Engineering</p>
+                            <p class="text-xs font-mono">GRADUATED_2015</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="retro-border p-6 bg-slate-50">
+                    <h3 class="font-black text-xl border-b-2 border-black mb-4 uppercase text-center">Professional
+                        License</h3>
+                    <div class="text-center py-4">
+                        <p class="font-black text-2xl">BNSP CERTIFIED</p>
+                        <p class="uppercase font-bold italic">WEB DEVELOPER</p>
+                        <p class="mt-4 text-xs italic">[Certificate ID: Verified_IT_Professional]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="projects" class="mb-20">
+            <h2 class="table-header mb-8">PROJECT_ARCHIVE_FILE_LIST [TOTAL_RECORDS: 06]</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+
+                <div class="retro-border p-4 hover:bg-black hover:text-white transition group">
+                    <div class="flex justify-between font-bold mb-2 uppercase">
+                        <span>#001: SINGABRET_SUBANG</span>
+                        <a href="https://singabret.subang.go.id"
+                            class="underline group-hover:text-yellow-400">OPEN_LINK</a>
+                    </div>
+                    <p class="text-sm italic mb-2"
+                        x-text="lang === 'id' ? 'Sistem Kehadiran & Kinerja Pegawai Subang.' : 'Integrated Govt Attendance System.'">
+                    </p>
+                    <p class="text-[10px] font-mono uppercase tracking-tighter">STACK: PHP, LARAVEL, REST_API, MYSQL</p>
+                </div>
+
+                <div class="retro-border p-4 hover:bg-black hover:text-white transition group">
+                    <div class="flex justify-between font-bold mb-2 uppercase">
+                        <span>#002: SMART_THUNDER_AI</span>
+                        <a href="https://smartthunder.ditengkoharmatau.com"
+                            class="underline group-hover:text-yellow-400">OPEN_LINK</a>
+                    </div>
+                    <p class="text-sm italic mb-2"
+                        x-text="lang === 'id' ? 'Bank Data & AI Translation Koharmatau.' : 'AI Data Bank & PDF Translation.'">
+                    </p>
+                    <p class="text-[10px] font-mono uppercase tracking-tighter">STACK: PYTHON, AI_PARSER, PHP,
+                        POSTGRESQL</p>
+                </div>
+
+                <div class="retro-border p-4 hover:bg-black hover:text-white transition group">
+                    <div class="flex justify-between font-bold mb-2 uppercase">
+                        <span>#003: CLEANIC_LAUNDRY</span>
+                        <a href="https://cleaniclaundry.web.id/"
+                            class="underline group-hover:text-yellow-400">OPEN_LINK</a>
+                    </div>
+                    <p class="text-sm italic mb-2"
+                        x-text="lang === 'id' ? 'Manajemen Laundry & Landing Page.' : 'Laundry Management & Landing Page.'">
+                    </p>
+                    <p class="text-[10px] font-mono uppercase tracking-tighter">STACK: PHP, MYSQL, BOOTSTRAP, TAILWIND
+                    </p>
+                </div>
+
+                <div class="retro-border p-4 hover:bg-black hover:text-white transition group">
+                    <div class="flex justify-between font-bold mb-2 uppercase">
+                        <span>#004: PMB_IKIP_SILIWANGI</span>
+                        <span class="text-xs italic">[INTERNAL_ONLY]</span>
+                    </div>
+                    <p class="text-sm italic mb-2"
+                        x-text="lang === 'id' ? 'Portal PMB & Integrasi Host-to-Host BRI.' : 'Student Admission with Bank BRI Integration.'">
+                    </p>
+                    <p class="text-[10px] font-mono uppercase tracking-tighter">STACK: PHP, PAYMENT_GATEWAY, API_BRI</p>
+                </div>
+
+                <div class="retro-border p-4 hover:bg-black hover:text-white transition group">
+                    <div class="flex justify-between font-bold mb-2 uppercase">
+                        <span>#005: SISTEM_KLINIK_ASTI</span>
+                        <a href="https://klinikasti.web.id" class="underline group-hover:text-yellow-400">OPEN_LINK</a>
+                    </div>
+                    <p class="text-sm italic mb-2"
+                        x-text="lang === 'id' ? 'Manajemen Rekam Medis & Billing Klinik.' : 'Clinic Management & Medical Record System.'">
+                    </p>
+                    <p class="text-[10px] font-mono uppercase tracking-tighter">STACK: LARAVEL, JS, TAILWIND, MYSQL</p>
+                </div>
+
+                <div class="retro-border p-4 hover:bg-black hover:text-white transition group">
+                    <div class="flex justify-between font-bold mb-2 uppercase">
+                        <span>#006: SUSHI_BOMBER_CORP</span>
+                        <a href="https://sushibomber-nusantara.co.id"
+                            class="underline group-hover:text-yellow-400">OPEN_LINK</a>
+                    </div>
+                    <p class="text-sm italic mb-2"
+                        x-text="lang === 'id' ? 'Website Profil & Pendaftaran Kursus.' : 'Corporate Website & Course Registration.'">
+                    </p>
+                    <p class="text-[10px] font-mono uppercase tracking-tighter">STACK: LARAVEL, UI/UX, SEO_ENGINE</p>
+                </div>
+
+            </div>
+            <div class="mt-8 p-4 border-2 border-black border-dashed bg-slate-50">
+                <p class="text-sm font-bold uppercase tracking-widest text-center" x-show="lang === 'id'">
+                    <i class="fa-solid fa-lock mr-2"></i>
+                    CATATAN: Terdapat +15 proyek lainnya (Sistem Internal Pemerintahan, Integrasi Database Militer,
+                    dan Aplikasi Korporat) yang tidak dipublikasikan karena kebijakan kerahasiaan data (NDA).
+                </p>
+                <p class="text-sm font-bold uppercase tracking-widest text-center" x-show="lang === 'en'">
+                    <i class="fa-solid fa-lock mr-2"></i>
+                    NOTE: There are +15 other projects (Internal Govt Systems, Military Database Integration, and
+                    Corporate Apps) not listed here due to Non-Disclosure Agreements (NDA).
+                </p>
+            </div>
+        </section>
+
+        <hr class="border-t-2 border-black my-10">
+
+        <section class="mb-20 px-4 text-center">
+            <div class="retro-border inline-block bg-white w-full max-w-2xl overflow-hidden text-left mx-auto">
+
+                <div class="bg-black text-white px-3 py-1.5 flex justify-between items-center border-b-2 border-black">
+                    <span class="text-[10px] md:text-xs font-bold font-mono uppercase tracking-tighter truncate mr-2">
+                        C:\SYSTEM\COMMUNICATION_MANAGER.EXE
+                    </span>
+                    <div class="flex gap-1 shrink-0">
+                        <div class="w-3 h-3 border border-white"></div>
+                        <div
+                            class="w-3 h-3 border border-white bg-white text-black leading-[0] flex items-center justify-center text-[10px]">
+                            ×</div>
+                    </div>
+                </div>
+
+                <div class="p-6 md:p-12 text-center">
+                    <h2 class="text-2xl md:text-4xl font-black uppercase mb-4 tracking-tighter leading-tight">
+                        <span class="animate-[pulse_1s_infinite] hidden sm:inline">>>></span>
+                        NEED_A_SYSTEM?
+                        <span class="animate-[pulse_1s_infinite] hidden sm:inline uppercase">
+                            <<<< /span>
+                    </h2>
+
+                    <p class="mb-8 font-bold italic border-b border-black inline-block pb-1 text-sm md:text-base"
+                        x-show="lang === 'id'">
+                        Tersedia untuk proyek & konsultasi digital.
+                    </p>
+                    <p class="mb-8 font-bold italic border-b border-black inline-block pb-1 text-sm md:text-base"
+                        x-show="lang === 'en'">
+                        Available for projects & consultancy.
+                    </p>
+
+                    <div class="flex flex-wrap justify-center gap-4 mt-2">
+                        <a href="https://wa.me/6281292822284"
+                            class="retro-button text-lg md:text-2xl px-4 py-3 md:px-8 md:py-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1 transition-all w-full sm:w-auto">
+                            [ CONTACT_VIA_WA ]
+                        </a>
+                    </div>
+
+                    <div
+                        class="mt-10 text-[9px] md:text-[10px] font-mono opacity-70 grid grid-cols-3 gap-2 border-t border-black pt-4">
+                        <span>STATUS: READY</span>
+                        <span>BAUD: 9600</span>
+                        <span>ENC: NONE</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto border-t-8 border-black pt-6 pb-12 text-center font-mono text-sm uppercase">
+        <p>Copyright (C) 2026 Kandi Permana. All Rights Reserved.</p>
+        <p class="mt-2">Optimized for 1024x768 resolution and legacy browsing.</p>
+        <div class="mt-4 inline-block border-2 border-black p-2 animate-pulse">
+            S.Kom_Verified_Profile
+        </div>
+    </footer>
+
+
+    <script src="assets/app.js"></script>
+</body>
+
+</html>
